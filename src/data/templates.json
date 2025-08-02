@@ -1,0 +1,44 @@
+{
+  "school": [
+    {
+      "title": "Fire Protection Equipment Check",
+      "content": "Check all extinguishers, sprinklers, and fire alarms in classrooms, hallways, and staff areas.",
+      "checklist": [
+        "Fire extinguisher inspection date is valid",
+        "Sprinkler heads are not obstructed",
+        "Fire alarm panel is functional"
+      ]
+    },
+    {
+      "title": "Accessibility Facility Verification",
+      "content": "Ensure all entrances, restrooms, and common areas comply with accessibility standards.",
+      "checklist": [
+        "Wheelchair ramps installed",
+        "Braille signage on main doors",
+        "Elevator operational and marked"
+      ]
+    }
+  ],
+  "apartment": [
+    {
+      "title": "Fire Safety Inspection",
+      "content": "Inspect fire alarms, exits, and extinguishers in all units and hallways.",
+      "checklist": [
+        "Smoke detectors in each unit are functional",
+        "Fire extinguishers checked within last 12 months",
+        "Emergency exit signage is visible and lit"
+      ]
+    }
+  ],
+  "commercial": [
+    {
+      "title": "Freight Circulation Check",
+      "content": "Ensure loading/unloading areas and paths are clear and compliant.",
+      "checklist": [
+        "Loading dock signage is visible",
+        "Freight elevator operational",
+        "Emergency access pathways not blocked"
+      ]
+    }
+  ]
+}
