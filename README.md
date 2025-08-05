@@ -1,62 +1,90 @@
-# Construction Standards Manager
+# 🏗️ Construction Standards Manager
 
-A web application for managing standardized construction templates 
+A full-stack web application to manage standardized checklists for construction inspections across schools, apartments, and commercial properties.
+
+---
 
 ## 🚀 Tech Stack
 
-- **Frontend**: React (Vite), TypeScript, Tailwind CSS, shadcn/ui
-- **Backend**: Python, Flask, SQLAlchemy
-- **Data**: JSON (frontend), PostgreSQL or SQLite (backend)
+| Layer     | Stack                                     |
+|-----------|-------------------------------------------|
+| Frontend  | React (Vite), TypeScript, Tailwind CSS, [shadcn/ui](https://ui.shadcn.com/) |
+| Backend   | Python, Flask, SQLAlchemy                 |
+| Database  | PostgreSQL or SQLite                      |
+| Data Format | JSON (Frontend ↔ Backend)               |
 
 ---
 
-## Features
+## 🔧 Features
 
-### ✅ Template Creation
-- Select category: `school`, `apartment`, or `commercial`
-- View and check construction checklist items
-- Preview selected items as a template
-- Input custom title for the template
+### ✅ Template Creation (Frontend)
+- Select a category: `school`, `apartment`, `commercial`
+- View and select standard checklist items (loaded from `templates.json`)
+- Input custom `title` for the new template
+- Preview selected items before saving
 
 ### ✅ Save Template to Backend
-- Send `POST` request to Flask backend with:
+- On "Save Template", send a `POST /api/templates` request
+- Data payload includes:
   - `title`: user input
-  - `subtitle`: joined string of selected item titles
-  - `checklist`: merged checklist arrays
+  - `subtitle`: comma-separated checklist item titles
+  - `checklist`: array of all selected checklist strings
   - `category`: current selected category
-- Backend stores data with timestamp (`created_at`)
+- Server stores the template with auto-generated UUID and `created_at` timestamp
 
 ### ✅ View Saved Templates
-- Send `GET /api/templates` to load existing templates
-- Render in a card list with:
+- Fetch saved templates from `GET /api/templates`
+- Display each as a card:
   - Title, Subtitle, Category, Timestamp
-  - Checklist items as bullet list
+  - Checklist items shown as bullet list
 
-### ✅ Delete Templates
-- `DELETE /api/templates/<id>` endpoint
-- UI includes delete button per template card
+### ✅ Delete Template
+- Call `DELETE /api/templates/<id>` endpoint
+- Each card includes a delete button
 
 ---
 
-## API Endpoints
+## 🧩 API Endpoints
 
-### POST `/api/templates`
+### `POST /api/templates`
 ```json
 {
   "title": "Fire Safety Checklist",
-  "subtitle": "Smoke, Exit Signs",
-  "checklist": ["Smoke detectors working", "Exit signs visible"],
+  "subtitle": "Smoke Detectors, Extinguishers",
+  "checklist": [
+    "Smoke detectors working",
+    "Extinguishers checked"
+  ],
   "category": "apartment"
 }
+````
 
-GET /api/templates
-Returns a list of all saved templates
+### `GET /api/templates`
 
-DELETE /api/templates/<id>
-Deletes one template by UUID
+* Returns a list of all saved templates:
 
-Template Schema
+```json
+[
+  {
+    "id": "uuid-string",
+    "title": "Fire Safety Checklist",
+    "subtitle": "Smoke Detectors, Extinguishers",
+    "checklist": [...],
+    "category": "apartment",
+    "created_at": "2025-08-04T23:36:41.402Z"
+  }
+]
+```
 
+### `DELETE /api/templates/<id>`
+
+* Deletes the specified template by UUID
+
+---
+
+## 🧱 Template Schema (SQLAlchemy)
+
+```python
 class Template(db.Model):
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     title = db.Column(db.String(100))
@@ -64,24 +92,70 @@ class Template(db.Model):
     checklist = db.Column(db.Text)  # Stored as JSON string
     category = db.Column(db.String(50))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+```
 
-## Project Structure
-Frontend
-```bash
+---
+
+## 🗂️ Project Structure
+
+### Frontend
+
+```
 src/
 ├── components/
-│   └── standards/TemplateViewer.tsx
-├── pages/App.tsx
-├── data/templates.json
-├── types/templates.ts
-components/ui/
-├── input.tsx, button.tsx, card.tsx, checkbox.tsx
+│   └── standards/
+│       └── TemplateViewer.tsx
+├── pages/
+│   └── App.tsx
+├── data/
+│   └── templates.json
+├── types/
+│   └── templates.ts
+└── components/ui/
+    ├── input.tsx
+    ├── button.tsx
+    ├── card.tsx
+    └── checkbox.tsx
+```
 
+### Backend
 
-Backend
-```bash
+```
 backend/
-├── app.py
-├── db.py
-├── models/template.py
-├── routes/templates.py
+├── app.py                  # Flask app instance and setup
+├── db.py                   # SQLAlchemy initialization
+├── models/
+│   └── template.py         # Template model
+└── routes/
+    └── templates.py        # API route handlers for CRUD
+```
+
+---
+
+## ✅ Future Improvements
+
+* [ ] Team-based template filtering (using `team_id`)
+* [ ] Template export to PDF or CSV
+* [ ] User authentication (multi-user support)
+* [ ] Template versioning or history tracking
+* [ ] Form validation and error messages
+
+---
+
+## 🏁 Getting Started
+
+```bash
+# 1. Install frontend dependencies
+cd frontend
+npm install
+npm run dev
+
+# 2. Run backend (in another terminal)
+cd backend
+python app.py
+```
+
+Make sure both servers are running:
+
+* Frontend: [http://localhost:5173](http://localhost:5173)
+* Backend: [http://localhost:5000](http://localhost:5000)
