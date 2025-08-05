@@ -122,12 +122,6 @@ export default function App() {
         </Button>
       </div>
 
-      {/* Checklist UI from TemplateViewer */}
-      <TemplateViewer
-        category={category}
-        checkedItems={checkedItems}
-        setCheckedItems={setCheckedItems}
-      />
 
       {/* Template title input and creation */}
       <div className="space-y-3">
@@ -148,7 +142,7 @@ export default function App() {
           <h2 className="text-lg font-semibold mb-2">Created Template</h2>
           <p className="text-sm text-muted-foreground mb-2">
             <strong>{createdTemplate[0].title}</strong>:{" "}
-            {createdTemplate[0].content}
+            {createdTemplate[0].subtitle}
           </p>
           <ul className="list-disc list-inside text-sm space-y-1">
             {createdTemplate[0].checklist.map((point, i) => (
