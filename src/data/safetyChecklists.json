@@ -1,0 +1,118 @@
+{
+  "default": [
+    {
+      "title": "Emergency Exits Inspection",
+      "subtitle": "Verify that all emergency exits are accessible, unobstructed, and clearly marked.",
+      "checklist": [
+        "Exit doors open easily without keys or special tools",
+        "Exit pathways free from obstructions",
+        "Exit signs illuminated and visible"
+      ]
+    },
+    {
+      "title": "First Aid and Medical Supplies",
+      "subtitle": "Ensure that first aid kits and emergency medical supplies are stocked and accessible.",
+      "checklist": [
+        "First aid kits stocked according to regulations",
+        "AED (Automated External Defibrillator) available and functional",
+        "Emergency contact numbers posted in visible areas"
+      ]
+    },
+    {
+      "title": "Personal Protective Equipment (PPE) Compliance",
+      "subtitle": "Check that all required PPE is available and being worn correctly by personnel.",
+      "checklist": [
+        "Hard hats worn in required areas",
+        "High-visibility vests available for site access",
+        "Safety gloves and eyewear used where necessary"
+      ]
+    }
+  ],
+  "school": [
+    {
+      "title": "Fire Protection Equipment Check",
+      "subtitle": "Check all extinguishers, sprinklers, and fire alarms in classrooms, hallways, and staff areas.",
+      "checklist": [
+        "Fire extinguisher inspection date is valid",
+        "Sprinkler heads are not obstructed",
+        "Fire alarm panel is functional"
+      ]
+    },
+    {
+      "title": "Accessibility Facility Verification",
+      "subtitle": "Ensure all entrances, restrooms, and common areas comply with accessibility standards.",
+      "checklist": [
+        "Wheelchair ramps installed",
+        "Braille signage on main doors",
+        "Elevator operational and marked"
+      ]
+    },
+    {
+      "title": "Playground Safety Audit",
+      "subtitle": "Inspect outdoor play areas for hazards and compliance with safety standards.",
+      "checklist": [
+        "Playground equipment securely anchored",
+        "Impact-absorbing surfaces in place",
+        "No sharp edges or broken components"
+      ]
+    }
+  ],
+  "apartment": [
+    {
+      "title": "Fire Safety Inspection",
+      "subtitle": "Inspect fire alarms, exits, and extinguishers in all units and hallways.",
+      "checklist": [
+        "Smoke detectors in each unit are functional",
+        "Fire extinguishers checked within last 12 months",
+        "Emergency exit signage is visible and lit"
+      ]
+    },
+    {
+      "title": "Elevator Safety and Maintenance",
+      "subtitle": "Ensure elevators are functioning properly and comply with safety regulations.",
+      "checklist": [
+        "Annual safety inspection completed",
+        "Emergency call button operational",
+        "Elevator maintenance log up-to-date"
+      ]
+    },
+    {
+      "title": "Structural Integrity Review",
+      "subtitle": "Check common areas and units for any visible structural damage.",
+      "checklist": [
+        "No visible cracks in load-bearing walls",
+        "Balconies and railings secure",
+        "Foundation free from significant damage"
+      ]
+    }
+  ],
+  "commercial": [
+    {
+      "title": "Freight Circulation Check",
+      "subtitle": "Ensure loading/unloading areas and paths are clear and compliant.",
+      "checklist": [
+        "Loading dock signage is visible",
+        "Freight elevator operational",
+        "Emergency access pathways not blocked"
+      ]
+    },
+    {
+      "title": "Electrical System Safety Review",
+      "subtitle": "Inspect electrical rooms and systems for compliance and hazard prevention.",
+      "checklist": [
+        "Breaker panels labeled correctly",
+        "No exposed wires",
+        "Emergency power systems functional"
+      ]
+    },
+    {
+      "title": "Workplace Hazard Assessment",
+      "subtitle": "Review work areas for potential hazards and ensure compliance with occupational safety regulations.",
+      "checklist": [
+        "Proper PPE signage displayed",
+        "Spill kits available and stocked",
+        "First aid stations accessible"
+      ]
+    }
+  ]
+}

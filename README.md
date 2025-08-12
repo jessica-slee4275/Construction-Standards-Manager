@@ -19,12 +19,12 @@ A full-stack web application to manage standardized checklists for construction 
 
 ### ✅ Template Creation (Frontend)
 - Select a category: `school`, `apartment`, `commercial`
-- View and select standard checklist items (loaded from `templates.json`)
+- View and select standard checklist items (loaded from `safetyChecklists.json`)
 - Input custom `title` for the new template
 - Preview selected items before saving
 
 ### ✅ Save Template to Backend
-- On "Save Template", send a `POST /api/templates` request
+- On "Save Template", send a `POST /api/safetyTemplates` request
 - Data payload includes:
   - `title`: user input
   - `subtitle`: comma-separated checklist item titles
@@ -33,20 +33,20 @@ A full-stack web application to manage standardized checklists for construction 
 - Server stores the template with auto-generated UUID and `created_at` timestamp
 
 ### ✅ View Saved Templates
-- Fetch saved templates from `GET /api/templates`
+- Fetch saved templates from `GET /api/safetyTemplates`
 - Display each as a card:
   - Title, Subtitle, Category, Timestamp
   - Checklist items shown as bullet list
 
 ### ✅ Delete Template
-- Call `DELETE /api/templates/<id>` endpoint
+- Call `DELETE /api/safetyTemplates/<id>` endpoint
 - Each card includes a delete button
 
 ---
 
 ## 🧩 API Endpoints
 
-### `POST /api/templates`
+### `POST /api/safetyTemplates`
 ```json
 {
   "title": "Fire Safety Checklist",
@@ -59,7 +59,7 @@ A full-stack web application to manage standardized checklists for construction 
 }
 ````
 
-### `GET /api/templates`
+### `GET /api/safetyTemplates`
 
 * Returns a list of all saved templates:
 
@@ -76,7 +76,7 @@ A full-stack web application to manage standardized checklists for construction 
 ]
 ```
 
-### `DELETE /api/templates/<id>`
+### `DELETE /api/safetyTemplates/<id>`
 
 * Deletes the specified template by UUID
 
@@ -105,10 +105,9 @@ src/
 ├── components/
 │   └── standards/
 │       └── TemplateViewer.tsx
-├── pages/
-│   └── App.tsx
+├── App.tsx
 ├── data/
-│   └── templates.json
+│   └── safetyChecklists.json
 ├── types/
 │   └── templates.ts
 └── components/ui/
@@ -127,7 +126,7 @@ backend/
 ├── models/
 │   └── template.py         # Template model
 └── routes/
-    └── templates.py        # API route handlers for CRUD
+    └── safetyTemplates.py        # API route handlers for CRUD
 ```
 
 ---
@@ -152,7 +151,7 @@ npm run dev
 
 # 2. Run backend (in another terminal)
 cd backend
-python app.py
+flask run
 ```
 
 Make sure both servers are running:

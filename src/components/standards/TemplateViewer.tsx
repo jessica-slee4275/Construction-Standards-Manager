@@ -1,9 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
-import templates from "@/data/templates.json";
+import safetyChecklists from "@/data/safetyChecklists.json";
 
-interface TemplateItem {
+interface SafetyChecklistsItem {
   title: string;
-  content: string;
+  subtitle: string;
   checklist: string[];
 }
 
@@ -11,14 +11,14 @@ type Category = 'school' | 'apartment' | 'commercial';
 
 interface Props {
   category: Category;
-  checkedItems: TemplateItem[];
-  setCheckedItems: React.Dispatch<React.SetStateAction<TemplateItem[]>>;
+  checkedItems: SafetyChecklistsItem[];
+  setCheckedItems: React.Dispatch<React.SetStateAction<SafetyChecklistsItem[]>>;
 }
 
 export const TemplateViewer = ({ category, checkedItems, setCheckedItems }: Props) => {
-  const items: TemplateItem[] = templates[category] || [];
+  const items: SafetyChecklistsItem[] = safetyChecklists[category] || [];
 
-  const toggleCheck = (item: TemplateItem) => {
+  const toggleCheck = (item: SafetyChecklistsItem) => {
     setCheckedItems((prev) =>
       prev.some((i) => i.title === item.title)
         ? prev.filter((i) => i.title !== item.title)
